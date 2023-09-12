@@ -21,7 +21,7 @@ DRV_HIDAPI	= y
 #DEBUG	= -g -O0
 DEBUG	= -O2
 CC	= gcc
-INCLUDE	= -I.
+INCLUDE	= -I/usr/include/libftdi1 -I.
 DEFS	= -D_GNU_SOURCE
 CFLAGS	= $(DEBUG) $(DEFS) -Wformat=2 -Wall -Winline $(INCLUDE) -pipe -fPIC
 
@@ -44,7 +44,7 @@ OPTS	+= -DDRV_CONRAD
 endif
 ifeq ($(DRV_SAINSMART), y)
 SRC	+= relay_drv_sainsmart.c
-LIBS	+= -lftdi
+LIBS	+= -lftdi1
 OPTS	+= -DDRV_SAINSMART
 endif
 ifeq ($(DRV_SAINSMART16), y)
